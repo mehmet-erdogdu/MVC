@@ -1,0 +1,16 @@
+﻿@model ASPNET_MVC.ViewModels.MesajViewModel
+@* Burası DepartmanForm için *@
+@if (Model.Status)
+{
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        @Model.Mesaj <a href="@Model.Url" class="alert-link">@Model.LinkText</a>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        @Model.Mesaj <a href="@Model.Url" class="alert-link">@Model.LinkText</a>
+    </div>
+}

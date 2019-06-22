@@ -1,0 +1,40 @@
+﻿@using ASPNET_MVC.Models.EntitiyFramework
+@model List<Departman>
+@{
+    ViewBag.Title = "Departman Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h6>Hoşgeldiniz. Programımız beta kullanıma açıktır.</h6>
+<h6>Lütfen kendi departmanınızı kaydediniz</h6>
+<a class="btn btn-success" href="/Yeni_departman" onclick="ajax_loading()">Yeni Departman</a>
+<br />
+<br />
+<div class="card mb-3">
+    <div class="card-header text-danger">
+        <i class="fa fa-table"></i> Departman Listesi
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tblDepartmanlar">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th style="width:50px">Güncelle</th>
+                        <th style="width:50px">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Ad</td>
+                            <td><a class="btn btn-primary" href="/Departman_guncelleme/@item.Id" onclick="ajax_loading()">Güncelle</a></td>
+                            <td><a class="btn btn-warning btnDepartmanSil" data-id="@item.Id">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Son görüntüleme : @DateTime.Now</div>
+</div>

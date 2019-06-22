@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Mehmet Erdoğdu - Proje MVC - Kişisel web sitesidir">
+    <meta name="author" content="Mehmet Erdogdu - Proje MVC - Kisisel web sitesidir">
+    <title>@ViewBag.Title - Proje MVC</title>
+    <meta name="keywords" content="kisisel, calisma, Mehmet, Erdogdu, ASPNET, MVC" />
+    <meta name='og:url' content='https://mehmeterdogdu.azurewebsites.net/' />
+    <link href="https://mehmeterdogdu.azurewebsites.net/" rel="canonical" />
+    <meta name='og:image' content="https://mehmeterdogdu.azurewebsites.net/Content/images/favicon.ico" />
+    <meta name="content-language" content="tr-TR" />
+    <meta name="robots" content="all" />
+    <meta name="abstract" content="Kisisel web sitesidir." />
+    <meta name="copyright" content="www.mehmeterdogdu.azurewebsites.net Tum Haklari Saklidir." />
+    <meta name="language" content="Turkish" />
+    <meta name="revisit-after" content="3 days" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mehmeterdogdu.azurewebsites.net || Proje MVC" />
+    <meta content='general' name='rating' />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/images/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/Content/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Add to Home">
+    @Styles.Render("~/bundles/css")
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    @*@RenderSection("css", false)*@
+    <meta name="designer" content="Mehmet ERDOGDU" />
+    <meta name="reply-to" content="mehmet.erdogdu52@hotmail.com" />
+</head>
+@if (Request.Cookies["hamburger"] == null || Request.Cookies["hamburger"].Value == "0")
+{
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+        @*fixed - nav sticky- footer bg- dark sidenav- toggled *@
+        @Html.Partial("_Header")
+        <div class="content-wrapper">
+            @*<div class="container-fluid">*@
+            <div class="container-fluid">
+                @*<div style="margin-left:10px;">*@
+                @Html.Partial("_Info")
+                @RenderBody()
+                @*</div>*@
+            </div>
+            @Html.Partial("_Footer")
+            @Html.Partial("_Top_Notifiy")
+        </div>
+    </body>
+}
+else
+{
+    <body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top">
+        @Html.Partial("_Header")
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                @Html.Partial("_Info")
+                @RenderBody()
+            </div>
+            @Html.Partial("_Footer")
+            @Html.Partial("_Top_Notifiy")
+        </div>
+    </body>
+}
+</html>
+@Scripts.Render("~/bundles/scripts")
+<script src="/signalr/hubs"></script>
+@*@RenderSection("scripts", false)*@

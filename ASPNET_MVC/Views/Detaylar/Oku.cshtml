@@ -1,0 +1,37 @@
+﻿@model ASPNET_MVC.Models.EntitiyFramework.Detay
+
+@{
+    ViewBag.Title = Model.Baslik;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Haber Detayları</h4>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd style="color:red">
+            <h3>@Html.DisplayFor(model => model.Baslik)</h3>
+        </dd>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Olusturma_Tarihi)
+        </dt>
+
+        <dd>
+            @Model.Kullanici.Ad tarafından <span style="font-style:italic">@Html.DisplayFor(model => model.Olusturma_Tarihi)</span>
+            tarihinde oluşturuldu.
+        </dd>
+
+    </dl>
+</div>
+<hr />
+<p>
+    @Html.ActionLink("Diğer Haberler", "Index")
+</p>

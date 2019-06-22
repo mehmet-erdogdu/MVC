@@ -1,0 +1,57 @@
+﻿@model ASPNET_MVC.Models.EntitiyFramework.Detay
+
+@{
+    ViewBag.Title = "Haber Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Bu haberi silmek istediğine emin misin?</h3>
+<div>
+    <h4>Detay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Olusturma_Tarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Olusturma_Tarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kullanici.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullanici.Ad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>

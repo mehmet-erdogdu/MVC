@@ -1,0 +1,449 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "Java Test";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Java Test</h2>
+<div style="clear:left;padding-top:1px">
+    <hr />
+    <button onclick="degistir()">Tıkla</button>
+    <button onclick="this.innerHTML='JavaScript'">Tıkla2</button>
+    <p id="para"></p>
+    <hr />
+    <p id="yaz">Deneme</p>
+    <button class="btn btn-info" onclick="yap()">Değiştir</button>
+    <input class="btn btn-success" type="button" value="Tıkla Alert" onclick="bas()" />
+    <button class="btn btn-danger" onclick="bas()"> Windows Alert</button>
+    <button class="btn btn-primary" onclick="ismimisoyle('Mehmet')">Geliştirici</button>
+    <button class="btn btn-default" onclick="topla(5,6)">Topla</button>
+</div>
+<br />
+<div class="col-md-4" style="background-color:red;float:left">
+    <br />
+    <input id="sayicik" type="number" min="50" max="100" required />
+    <button onclick="kontrol()">Kontrol et 50-100</button>
+    <form name="form1" method="post" action="JavaScript">
+        Kullanıcı Adı: <input type="text" name="username" />
+        <button onclick="tikla()">Tıkla</button>
+    </form>
+    <form name="form2" method="post" action="JavaScript" onsubmit="return dogrula()">
+        @* onsubmit="return false" sayfanın yenilenmesini engeller *@
+        Adınız : <input type="text" name="isim" />
+        <input type="submit" value="Gönder" />
+    </form>
+    <hr />
+    <input id="girdi" />
+    <button onclick="dogrula2()">Sayı değil mi</button>
+    <hr />
+    <form action="JavaScript" method="post">
+        <input type="text" name="isimx" required />
+        <input type="submit" value="Boş mu" />
+    </form>
+</div>
+<div class="col-md-4" style="background-color:blue;float:left">
+    <p id="test12"></p>
+    <p id="test11"></p>
+    <p id="test10"></p>
+    <p id="test9"></p>
+    <p id="test8"></p>
+    <p id="test7"></p>
+</div>
+<div class="col-md-4" style="background-color:green;float:left">
+    <p id="test6"></p>
+    <p id="test5"></p>
+    <p id="test4"></p>
+    <p id="test3"></p>
+    <p id="test"></p>
+</div>
+<div class="col-md-4" style="float:left;clear:left;background-color:grey;margin-top:5px">
+    <br />
+    <p id="paracik">MEMO Soft</p>
+    <button onclick="degistir2()">DOM Değiştir</button>
+    <p id="paracik2">MEMO Soft</p>
+    <button onclick="degistir3()">DOM Değiştir Performans</button>
+    <button onclick="degistir4()">DOM Sıfırla</button>
+
+
+    <br />
+    <br />
+</div>
+<div class="col-md-4" style="float:left;background-color:aqua;margin-top:5px">
+    <p class="class1">MEMO Soft</p>
+    <p class="class1">MEMO Soft</p>
+    <p class="class1">MEMO Soft</p>
+    <button onclick="etkile()">P'leri Etkile</button>
+    <button onclick="etkiles()">P'leri Etkileri Sil</button>
+    <button onclick="etkileclass()">Class1 Etkile</button>
+    <br />
+    <br />
+</div>
+<div class="col-md-4" style="float:left;background-color:antiquewhite;margin-top:5px">
+    <p style="color:orangered">Event</p>
+    <div id="div1" style="height:30px; width:250px">
+        Java Script <span>burayı tıkla</span>
+    </div>
+    <img id="resim" src="~/Content/images/mehmet.jpg" width="70px" height="100px" alt="Deneme" />
+    <p class="class2" id="para2"></p>
+    <button id="buton">Buton</button>
+</div>
+<style>
+    .kirmizi {
+        color: red;
+        background-color: yellow;
+    }
+</style>
+<div class="w-100" style="background-color:lightblue;float:left;margin-top:5px;padding:5px;">
+    <p>Dosyayı indirmek için butonu tıklayınız</p>
+    <p id="parax2"></p>
+    <button onclick="baslat()">İndirmek için tıklayınız</button>
+    <button onclick="islemdurdur()">İndirmeyi iptal et</button>
+</div>
+<div class="w-100" style="background-color:darkcyan;float:left;margin-top:5px;padding:5px;">
+    <a onclick="return yonlendir()" href="/">Siteye gitmek için tıklayın</a>
+    <button onclick="yonlendir2()">Bootbox</button>
+</div>
+<div style="float:left;clear:left;background-color:blueviolet;margin-top:5px;padding:5px">
+    <button onclick="degistir5()" class="btn btn-success">Değiştir Parent İçindeki Class</button>
+    <button onclick="degistir6()" class="btn btn-success">Değiştir Child Class Child eris</button>
+    <button onclick="degistir7()" class="btn btn-success">Değiştir Style Parenta eriş</button>
+    <button onclick="degistir8()" class="btn btn-success">Değiştir Style Önceki Child</button>
+    <br />
+    <a id="aetiketi">Link</a>
+    <br />
+    <hr />
+    <div id="anakisim">
+        <h3>BEKLEYİŞ ÖYKÜSÜ</h3>
+        <p>
+            Günler güz yaprakları gibi birer birer dökülürken ayaklarımın dibine, ben her gece karanlığa dikip gözlerimi senin aydınlığını bekledim sen yoktun! Binlerce adım attım bu kentin sokaklarında, her köşeyi, her parkı, her ağacı ezberledim. Sevdaya bulanmış kaldırım taşında senin adını aradım sen yoktun! Evlerin duvarları birer birer üzerime yıkıldı. Her bir hücremin acısını ta yüreğimde hissederken, beni enkazın altından çekip alacak elini aradım sen yoktun! Özlem şarkılarını ezberledim. Kimini bağıra bağıra, kimimi fısıltıyla söyledim. Karanlığa haykırdım hasretimi, sesimi duyacaksın diye bekledim sen yoktun! Senden gelecek bir tek haberi bekledim. Saatler asırlar gibi geldi, geçmedi. Çalan her telefonu yüreğimin deli bir çağlayana dönen atışlarıyla açtım. Senden başka duyduğum seste, hep aynı hayal kırıklığı yaşadım. Onlar beni duymak istiyordu, ben de seni. Ama sen yoktun! Seni aramaktan yorgun düşmüş bedenimi karanlığın kucağına uzattım her gece, bir an önce sabah olsun diye uykunun, beni çekip almasını istedim. Kaç gece sabah ettim gözlerimi kapamadan. Kaç gece merdivendeki ayak seslerini dinledim, gelen sensindir diye sen yoktun!
+        </p>
+        <h3>Birinci Kısım</h3>
+        <p id="ozelpara">Özel paragraf</p>
+        <p>
+            Her yağmurla birlikte, hüzün de yağdı bu kente, bulutlar yalnızlığın işaretiydi benim için. Beni ıslatan yağmur olmadı. Ben senin özleminle sırılsıklam oldum. Her mevsim hayat merhaba dedi, bahara çiçek açmış çiçek uzun kıştan sonra yenmez dediğim göçmen kuşların dönüşünü gördüm sen yoktun! Her istasyon, her otogar adresim oldu. Bir trenden inersin sandım. Otobüslerdeki her yolcuya sensin diye baktım ya da yolculuklara verdim kendimi. Kimsenin uğramadığı köylere, adı duyulmamış kasabalara gittim, senden bir iz aradım sen yoktun! Denizin maviliğine umut bağladım. Kıyılarda tükettim bekleyişlerimi. Hep sensiz gemiler geçti limandan. Ben gemicilerin hasret türkülerine eşlik ettim sen yoktun! Gözümden bir tek damla yaş akmadı. Onlar sana aitti, sana kalmalıydı. Kimselere söyleyemedim acılarımı. Bekleyişimin öyküsünü kimselere anlatamadım. Nice fırtına koptu yüreğimde, dalgalar dövdü hayallerimi. Sığınacak bir liman, yaslanacak bir omuz aradım, içimi dökecek bir insan aradım sen yoktun! Her gece ay param parça oldu, her gece yıldızlar birer birer düştü sokaklara. Yıldızları saçına takıp gelmeni bekledim, ayı avucunda bana getirmeni bekledim ve bir güneş gibi doğup aydınlatmanı bekledim bu kapkara dünyamı. <!!! AMA SEN YOKTUN!!!>
+        </p>
+    </div>
+    <textarea id="textarea" rows="10" cols="30"></textarea>
+    <button onclick="yenikisim()" class="btn btn-success">Yeni Kısım Ekle</button>
+    <button onclick="sil()" class="btn btn-danger">Sil</button>
+    <div />
+</div>
+<script>
+    /***************Dosya indirme*/
+    var say = 5;
+    var indirme;
+    var sure;
+    function baslat() {
+        indirme = setTimeout(dosyaindirme, 5000);
+        sureyisay(); // Hemen başlamasını sağlar. Yoksa alttaki kod 1000 ms sonra çalışır.
+        sure = setInterval(sureyisay, 1000);
+    }
+    function dosyaindirme() {//5 sn sonra çalışır
+        window.alert("Dosya inmeye başladı");
+        document.getElementById("parax2").innerHTML = "";
+        say = 5;
+    }
+    function sureyisay() {
+        document.getElementById("parax2").innerHTML = "Dosya " + say + " saniye içinde inecek..";
+        say--;
+        if (say == 0) {
+            clearInterval(sure);
+        }
+    }
+    function islemdurdur() {
+        clearInterval(sure);
+        clearTimeout(indirme);
+        document.getElementById("parax2").innerHTML = "Dosya indirme durdu.";
+        say = 5;
+    }
+    /***************Dosya indirme*/
+
+    function yonlendir2() {
+        bootbox.confirm("Naptın? " + document.URL,
+            function (result) {
+                if (result) {
+
+                }
+                else {
+
+                }
+            });
+    }
+
+    function yonlendir() {
+        var ok = confirm("Sayfadan ayrılmak istiyor musunuz?");
+        return ok;
+    }
+
+    function degistir8() {
+        var element = document.getElementById("ozelpara");
+        var gardas = element.previousElementSibling; //nextElementSibling
+        gardas.style.color = "orange";
+        gardas.style.backgroundColor = "green";
+    }
+
+    function degistir7() {
+        var element = document.getElementById("ozelpara");
+        var parent = element.parentNode;
+        parent.style.color = "pink";
+        parent.style.backgroundColor = "blue";
+    }
+
+    function degistir6() {
+        var parent = document.getElementById("anakisim");
+        var child = parent.childNodes[3]; //firstElementChild //lastElementChild //parent.childNodes[3]
+        child.style.color = "yellow";
+    }
+    function degistir5() {
+        var elementler = document.getElementsByTagName("h3");
+        for (var i = 0; i < elementler.length; i++) {
+            var ozellik = document.createAttribute("class");
+            ozellik.value = "kirmizi";
+            elementler[i].setAttributeNode(ozellik);
+        }
+        var hrefozelligi = document.createAttribute("href");
+        hrefozelligi.value = "/";
+        document.getElementById("aetiketi").setAttributeNode(hrefozelligi);
+        document.getElementById("aetiketi").innerHTML = "Buraya tıkla";
+    }
+
+    function sil() {
+        var hepsi = document.getElementsByTagName("p");
+        window.alert("Paragraf sayısı : " + hepsi.length)
+        if (hepsi.length != 0) {
+            var biri = hepsi[hepsi.length - 1];
+            var anne = biri.parentNode;
+            anne.removeChild(biri);
+        }
+    }
+
+    function yenikisim() {
+        var metin = document.getElementById("textarea").value;
+        var yenielement = document.createElement("p");
+        var icerik = document.createTextNode(metin);
+        yenielement.appendChild(icerik);
+        var anakisim = document.getElementById("anakisim");
+        anakisim.appendChild(yenielement);
+    }
+
+    var buton = document.getElementById("buton");
+    buton.addEventListener("click", tiklat);
+    buton.addEventListener("mouseover", mouseover);
+    buton.addEventListener("mouseout", mouseout);
+    var btn = document.getElementById("para2");
+    function tiklat() {
+        btn.innerHTML = "Tıklama eventi çalıştı";
+    }
+    function mouseover() {
+        btn.innerHTML = "Fare üstünde";
+    }
+    function mouseout() {
+        btn.innerHTML = "Fare ayrıldı";
+    }
+
+
+    var div = document.getElementById("div1");
+    div.onclick = function () {
+        this.innerHTML = "Mehmet Erdoğdu";
+    }
+    var resim = document.getElementById("resim");
+    resim.onmouseover = function () {
+        div.innerHTML = "Suratımdan şu fareyi çek!";
+    }
+    resim.onmouseout = function () {
+        div.innerHTML = "Java Script <span style='color:blue'> burayı tıkla</span>"
+    }
+
+    function etkileclass() {
+        var elementler = document.getElementsByClassName("class1");
+        var x = 0;
+        for (; x < elementler.length; x++) {////////////////////////////////////////
+            elementler[x].style.backgroundColor = "yellow";
+        }
+    }
+
+    function etkiles() {
+        var elementler = document.getElementsByTagName("p");
+        var x = 0;
+        for (; x < elementler.length; x++) {////////////////////////////////////////
+            elementler[x].style.backgroundColor = "";
+        }
+    }
+
+    function etkile() {
+        var elementler = document.getElementsByTagName("p");
+        for (var i = 0; i < elementler.length; i++) {
+            elementler[i].style.backgroundColor = "orange";
+        }
+    }
+
+    function degistir4() {
+        var x = document.getElementById("paracik2");
+        x.style = "";
+    }
+
+    function degistir3() {
+        var x = document.getElementById("paracik2");
+        x.style.color = "red";
+        x.style.backgroundColor = "yellow";
+        x.style.marginTop = "5px";
+        x.style.padding = "5px";
+        x.style.borderRadius = "5px";
+        x.style.textAlign = "center";
+        x.style.fontSize = "40px";
+        x.style.visibility = "visible";//hidden
+    }
+
+    function degistir2() {
+        document.getElementById("paracik").style.color = "white";
+        document.getElementById("paracik").style.backgroundColor = "black";
+        document.getElementById("paracik").style.padding = "5px";
+        document.getElementById("paracik").style.borderRadius = "5px";
+        document.getElementById("paracik").innerHTML += " " + document.URL;
+    }
+
+    function kontrol() {
+        var deger1 = document.getElementById("sayicik");
+        if (deger1.checkValidity() == false) {
+            window.alert("Aralık geçersiz : " + deger1.validationMessage);
+        }
+        else
+            window.alert("Aralık geçerli");
+    }
+
+    function dogrula2() {
+        var deger = document.getElementById("girdi").value;
+        if (isNaN(deger) == true) {
+            window.alert("Sayı giriniz");
+        }
+    }
+
+    function dogrula() {
+        //var deger = document.forms["form1"]["username"].value;
+        var deger = document.form2.isim.value;
+        if (deger == "") {
+
+            window.alert("Lütfen değer gir");
+            return false;//yenilemeyi engeller
+        }
+        else
+            window.alert(deger);
+    }
+
+
+    function tikla() {
+        //var deger = document.forms["form1"]["username"].value;
+        var deger = document.form1.username.value;
+        if (deger == "") {
+
+            window.alert("Lütfen değer gir");
+        }
+        else
+            window.alert(deger);
+    }
+
+    // body onload methodu için
+    function yukle() {
+        window.alert("Hoşgeldiniz");
+    }
+
+    function degistir() {
+        document.getElementById("para").innerHTML = "JavaScript";
+    }
+
+    // hr
+    for (var i = 0; i < 10; i++) {
+        if (i == 5) {
+            continue;
+        }
+        document.getElementById("test12").innerHTML += i + " ";
+    }
+    // Break döngüyü bitirir
+    // Continue alt işlemleri yapmaz döngü sonraki aşamaya geçer
+
+    //while (true) {
+    //}
+
+    document.getElementById("test11").innerHTML = "Say : ";
+    for (var i = 1; i < 11; i++) {
+        document.getElementById("test11").innerHTML += i + " ";
+    }
+
+    //if (true) {
+    //}
+    //else {
+    //}
+
+    //switch (switch_on) {
+    //    case 1:
+    //        break;
+    //    default:
+    //        break;
+    //}
+
+    document.getElementById("test10").innerHTML = (4 != 5); // && and || or ! not
+
+    var sayisira = [-1, -5, 10, 3, 117, 35];
+    sayisira.sort(function (a, b) { return a - b; });
+    //sayisira.sort(function (a, b) { return b-a; }); // Ters sıra
+    document.getElementById("test9").innerHTML = "Sıralandı : " + sayisira;
+
+    var sira = ["Haso", "Maho", "Zeyno", "Bilo"];
+    sira.sort();
+    document.getElementById("test7").innerHTML = "Sıralandı : " + sira;
+    sira.reverse();
+    document.getElementById("test8").innerHTML = "Ters sıralandı : " + sira;
+
+    var sayilar2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //Array
+    document.getElementById("test6").innerHTML = "Eklenen sayı : " + sayilar2.push(10)
+        + "</br>" + sayilar2;// elamanı ekler
+
+    var sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //Array
+    document.getElementById("test5").innerHTML = "Silinen son sayı : " + sayilar.pop()
+        + "</br>" + sayilar;//Sondakini elamanı bulur siler
+
+    var tarih = ["08", "03", "2018"]; //Array
+    document.getElementById("test4").innerHTML = tarih.join("/");
+
+    var isimler2 = ["Haso", "Maho", "Zeyno", "Bilo"]; //Array
+    document.getElementById("test3").innerHTML = isimler2;
+    var isimler = ["Mehmet", "Ahmet", "Ayşe", "Hasan"]; //Array
+    // Math.PI random() square pow min(,,)
+    var pc1 = {
+        marka: "Asus",
+        model: "N550JV",
+        ram: "12GB",
+        islemci: 2.70,
+        parcaciksayisi: 8,
+        isikliklavye: function () {
+            document.getElementById("test").innerHTML = "Klavye ışıklı";
+        },
+        yazdır: function () {
+            window.alert(this.ram);
+        }
+    };
+    document.getElementById("test").innerHTML = pc1.marka + " " + pc1["model"];
+    //pc1.yazdır();
+    // hr
+    var s1 = 30; // Global
+    function yap() {
+        document.getElementById("yaz").innerHTML = "Memo";
+    }
+    function bas() {
+        window.alert("Tıklandı!");
+    }
+    function ismimisoyle(isim) {
+        window.alert("Merhaba " + isim);
+    }
+    function topla(a, b) {
+        var c = a + b; // Local
+        window.alert("Toplam " + c);
+    }
+    function toplama(a, b) {
+        return a + b;
+    }
+    document.write(" Merhaba Dünya ");
+    document.write(toplama(5, 16));
+</script>

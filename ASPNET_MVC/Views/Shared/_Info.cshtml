@@ -1,0 +1,18 @@
+﻿<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/" onclick="ajax_loading()">Anasayfa</a>
+    </li>
+    <li class="breadcrumb-item active">@ViewBag.Title - Son görüntüleme : @DateTime.Now</li>
+</ol>
+@if (Request.Cookies["cerez"] == null)
+{
+    <div class="alert alert-danger alert-dismissable">
+
+        <a class="close" href="/Cerez" onclick="ajax_loading()">x</a>
+        @*<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
+        Bu site depolama için çerezler kullanmaktadır.
+        Siteyi kullanmaya devam ederek kullanım koşullarımızı kabul etmiş olacaksınız..
+        <a href="#" class="alert-link">Detaylar için tıklayınız</a>
+    </div>
+}

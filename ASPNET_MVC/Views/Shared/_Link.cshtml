@@ -1,0 +1,82 @@
+﻿<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Anasayfa">
+    <a class="nav-link" href="/" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-home"></i>
+        <span class="nav-link-text">Anasayfa</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Departman Listesi">
+    <a class="nav-link" href="/Departmanlar" onclick="ajax_loading()">
+        <span class="nav-link-text badge badge-pill badge-warning">@{Html.RenderAction("Departman_Sayisi", "Komut");} Adet</span>
+        <i class="fa fa-fw fa-th-large"></i>
+        <span class="nav-link-text">Departman Listesi</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personel Listesi">
+    <a class="nav-link" href="/Personeller" onclick="ajax_loading()">
+        <span class="nav-link-text badge badge-pill badge-danger">@{Html.RenderAction("Personel_Sayisi", "Komut");} Kişi</span>
+        <i class="fa fa-fw fa-users"></i>
+        <span class="nav-link-text">Personel Listesi</span>
+    </a>
+</li>
+
+@if (User.IsInRole("A"))
+{
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Kullanıcılar">
+        <a class="nav-link" href="/Kullanicilar" onclick="ajax_loading()">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text">Kullanıcılar</span>
+        </a>
+    </li>
+}
+
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sohbet">
+    <a class="nav-link" href="/Sohbet" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-comments"></i>
+        <span class="nav-link-text">Sohbet</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="İstatistikler">
+    <a class="nav-link" href="/Istatistik" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-bar-chart-o"></i>
+        <span class="nav-link-text">İstatistikler</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Hakkımızda">
+    <a class="nav-link" href="/Hakkimizda" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-list-alt  "></i>
+        <span class="nav-link-text">Hakkımızda</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="İletişim Bilgilerimiz">
+    <a class="nav-link" href="/Iletisim" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-phone-square  "></i>
+        <span class="nav-link-text">İletişim Bilgilerimiz</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Java Test">
+    <a class="nav-link" href="/JavaScript" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-lemon-o"></i>
+        <span class="nav-link-text">Java Test</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="HTML5 CSS3 Test">
+    <a class="nav-link" href="/HtmlCss" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-github"></i>
+        <span class="nav-link-text">HTML5 CSS3 Test</span>
+    </a>
+</li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tanıtım Sayfamız">
+    <a class="nav-link" href="/Tanitim" onclick="ajax_loading()">
+        <i class="fa fa-fw fa-heart"></i>
+        <span class="nav-link-text">Tanıtım Sayfamız</span>
+    </a>
+</li>

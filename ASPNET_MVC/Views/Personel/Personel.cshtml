@@ -1,0 +1,61 @@
+﻿@model List<ASPNET_MVC.Models.EntitiyFramework.Personel>
+@{
+    ViewBag.Title = "Personel Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h6>Hoşgeldiniz. Programımız beta kullanıma açıktır.</h6>
+<h6>Lütfen kendi bilgilerinizi rastgele kaydediniz</h6>
+<div id="personellistesi"></div>
+@Html.ActionLink("Yeni Personel", "Yeni", null, new { @class = "btn btn-success", @onclick = "ajax_loading()" })
+<br />
+<br />
+<div class="card mb-3">
+    <div class="card-header text-success">
+        <i class="fa fa-table"></i> Personel Listesi
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tblPersonel">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Maaş</th>
+                        <th>Yaş</th>
+                        <th>Doğum Tarihi</th>
+                        <th>Cinsiyet</th>
+                        <th>Evlilik Durumu</th>
+                        <th>Departman</th>
+                        <th width="100px">Departmandaki Personelleri Listele</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Ad</td>
+                            <td>@item.Soyad</td>
+                            <td>@item.Maas</td>
+                            <td>@(DateTime.Now.Year - item.DogumTarihi.Year)</td>
+                            <td>@item.DogumTarihi.ToString("dd-MM-yyyy")</td>
+                            <td>@(item.Cinsiyet == true ? "Erkek" : "Kadın")</td>
+                            <td>@(item.Evlimi == true ? "Evli" : "Bekar")</td>
+                            <td>@item.Departman.Ad</td>
+                            <td>
+                                @Ajax.ActionLink("Listele ve Göster", "PersonelleriListele", "Personel", new { id = item.DepartmanId }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "personellistesi" }, new { @class = "btn btn-warning" })
+                            </td>
+                            <td>@Html.ActionLink("Güncelle", "Guncelle", new { id = item.Id }, new { @class = "btn btn-primary", @onclick = "ajax_loading()" })</td>
+                            @*<td>@Html.ActionLink("Sil", "Sil", new { id = item.ID }, new { @class = "btn btn-danger" })</td>*@
+                            <td><a class="btn btn-danger btnPersonelSil" data-id="@item.Id">Sil</a></td>
+                            @*<td>
+                                    @Html.ActionLink("Personelleri Göster", "PersonelleriListele", "Personel", new { id = item.DepartmanId }, new { @class = "btn btn-warning" })
+                                </td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

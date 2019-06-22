@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Sohbet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h6 id="titleName" style="color:forestgreen;text-align:center"></h6>
+<center>
+    <p>SignalR ile yapılmıştır. Eğer mesaj gönderemiyorsanız sayfayı sağ tıklayıp en alttan</p>
+    <div>İncele'yi seçin ardından sekmelerden Application en sonunda Clear Storage'ı temizleyiniz.</div>
+    <a href="/Sohbet" target="_blank">Yeni sekmede Kısa Mesajlaşma özelliğimizi deneyebilirsiniz.</a>
+</center>
+<div style="position:center; max-width:500px;margin:auto">
+    <ul style="width: 100%; list-style-type: none; padding: 18px; bottom: 47px; display: flex; flex-direction: column; top: 0;" id="chatList">
+        <li style="width:100%">
+            <div class="msj chatmacro">
+                <div>
+                    <img class="rounded-circle" style="width:75px; height:75px" src="~/Content/images/m1.PNG" alt="x">
+                </div>
+                <div class="chattext" style="float: left; padding-left: 10px;">
+                    <a href="" style="color:black">Siz</a>
+                    <h5>Merhaba Dünya!</h5>
+                    <small style="color:black">5.03.2018 10:48:09</small>
+                </div>
+            </div>
+        </li>
+        <li style="width:100%;">
+            <div class="msj-rta chatmacro">
+                <div class="chattext" style="float: right; padding-left: 10px;">
+                    <a href="">MEMO Soft TM</a>
+                    <h5>MEMO Soft yapım gururla sunar</h5>
+                    <small style="color:black">5.03.2018 10:50:31</small>
+                </div>
+                <div style="padding:0px 0px 0px 10px; display: flex; justify-content: center; align-items: center; width: 25%; float: left; height:75px; padding-right: 10px;">
+                    <img class="rounded-circle" style="width:75px; height:75px" src="~/Content/images/tux.jpg" alt="x">
+                </div>
+            </div>
+        </li>
+    </ul>
+    <input class="form-control" type="text" id="txtMessage" style="text-align:right;margin:auto;float:left" value="Mesaj" />
+    <br />
+    <br />
+    <a id="btnSend" class="btn btn-outline btn-primary" style="float:right" href="#foo">Mesajı Gönder</a>
+</div>
+<div class="w-100" style="height:140px"></div>

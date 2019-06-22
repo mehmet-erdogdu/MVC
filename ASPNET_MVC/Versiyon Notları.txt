@@ -1,0 +1,42 @@
+EKLENEN NUGET PAKETLERÝ
+Bootstrap - Tasarým için
+Jquery Easing
+Jquery Unobtrusive Ajax - Sayfa içinde Html çekme
+Jquery DataTables - Tablo sýralama arama.
+Bootbox - Tarayýcýya mesaj çýkarma
+Microsoft.jQuery.Unobtrusive.Validation - Input Text geçerli mi kontrol eder
+Elmah - Hata yakalamak için
+Microsoft AspNet Web Optimization - Bundle için
+
+
+Nuget Optimization, dll atar
+Script ve CSS dosyalarýný tek bir istek haline getirir.
+
+
+Nuget Elmah, dll atar
+Hata loglamak için kullanýlýr
+Kurulum kontrolü tarayýcýda /elmah.axd
+2. Elmah githubdan sql script indir. çalýþtýr. veri tablosu oluþacak ve store prosedür atacak
+3. WebConfig
+<elmah>
+    <errorLog type="Elmah.SqlErrorLog, Elmah" connectionString="data source=MEHMET-PC\SQLEXPRESS;initial catalog=ProjeMVC;integrated security=True"/>
+</elmah>
+4. class oluþtur
+ public class ElmahExceptionFilter : IExceptionFilter
+    {
+        public void OnException(ExceptionContext filterContext)
+        {
+            if (filterContext.ExceptionHandled)
+            {
+                ErrorSignal.FromCurrentContext().Raise(filterContext.Exception);
+            }
+        }
+    }
+5. Global.asax a HandleErrorAttribute dan önce filtre ekle
+GlobalFilters.Filters.Add(new ElmahExceptionFilter());
+
+/Admin/Xhome/Index
+
+Signal R Chat
+ChatHub.cs
+Startup.cs

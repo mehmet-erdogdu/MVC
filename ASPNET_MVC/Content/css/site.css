@@ -1,0 +1,191 @@
+﻿/*Knockout text*/
+.backdrop2 {
+    background-size: contain;
+    background-position: center;
+    margin: auto;
+    margin-top: 40px;
+    width: 75vw;
+}
+
+    .backdrop2.taito {
+        background-image: url("/Content/images/knockout/Taitō.jpg");
+    }
+
+    .backdrop2.shibuya {
+        background-image: url("/Content/images/knockout/Shibuya.jpg");
+    }
+
+    .backdrop2.shinjuku {
+        background-image: url("/Content/images/knockout/Shinjuku.jpg");
+    }
+
+.text2 {
+    color: white;
+    border: 4px white solid;
+    mix-blend-mode: multiply;
+    font: bolder 5vw monospace;
+    /*12*/
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    transition: text-indent 0.5s;
+}
+
+    .text2:hover {
+        text-indent: 5px;
+        transition: text-indent 0.5s;
+    }
+
+        .text2:hover::before {
+            display: inline-block;
+            content: "✈︎";
+        }
+
+    .text2.taito {
+        font-family: "Alfa Slab One", cursive;
+        background-color: rgba(59, 2, 6, 1);
+        outline: 4px rgba(59, 2, 6, 1) solid;
+    }
+
+    .text2.shibuya {
+        font-family: "Bungee Shade", cursive;
+        background-color: rgba(2, 22, 48, 1);
+        outline: 4px rgba(2, 22, 48, 1) solid;
+        font-size: 5vw;
+        /*10*/
+    }
+
+    .text2.shinjuku {
+        font-family: "Jacques Francois Shadow", cursive;
+        background-color: rgba(50, 6, 43, 1);
+        outline: 4px rgba(50, 6, 43, 1) solid;
+    }
+
+.backdrop1 {
+    background: url("/Content/images/knockout/Taitō.jpg") center;
+    background-size: contain;
+    margin: auto;
+    width: 75vw;
+}
+
+.text1 {
+    color: white;
+    border: 4px solid;
+    background: rgb(59, 2, 6);
+    mix-blend-mode: multiply;
+    font: bolder 5vw "Alfa Slab One";
+    /*12vw*/
+    text-align: center;
+    margin: 0;
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px white;
+    }
+
+    15% {
+        text-shadow: 2px 2px 10px rgba(255, 255, 255, 1), -2px -2px 10px rgba(255, 255, 255, 1);
+    }
+
+    30% {
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, .7), -2px -2px 4px rgba(255, 255, 255, .7);
+    }
+
+    50% {
+        text-shadow: 20px 20px 50px rgba(255, 255, 255, .5), -20px -20px 50px rgba(255, 255, 255, .5);
+    }
+}
+/*Knockout text*/
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border: 2px solid red;
+}
+
+/* Sohbet buton */
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+}
+
+.btn-circle {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.428571429;
+}
+/* Sohbet buton */
+
+
+/*Sohbet Ekranı*/
+.chatmacro {
+    margin-top: 15px;
+    width: 90%;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+}
+
+.chattext {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .chattext > p:first-of-type {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: auto;
+        line-height: 13px;
+        font-size: 12px;
+    }
+
+    .chattext > p:last-of-type {
+        width: 100%;
+        text-align: right;
+        color: silver;
+        margin-bottom: -7px;
+        margin-top: auto;
+    }
+
+.msj {
+    float: left;
+    background-color:grey;
+}
+
+    .msj:before {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: -14px;
+        position: relative;
+        border-style: solid;
+        border-width: 0 13px 13px 0;
+        border-color: transparent grey transparent transparent;
+    }
+
+.msj-rta {
+    float: right;
+    background: whitesmoke;
+}
+
+    .msj-rta:after {
+        width: 0;
+        height: 0;
+        content: "";
+        top: -5px;
+        left: 14px;
+        position: relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: whitesmoke transparent transparent transparent;
+    }
+/*Sohbet Ekranı*/

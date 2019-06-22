@@ -1,0 +1,349 @@
+﻿@model IEnumerable<ASPNET_MVC.Models.EntitiyFramework.Detay>
+
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@ViewData["Message"]</h3>
+
+
+<div class="row">
+    <div class="col-lg-8">
+        <h6>
+            Sitemizi telefonunuzdan ziyaret ediniz. Eğer ekrana gelen bildirimdeki yönergeleri takip ederseniz,
+            birebir mobil uygulama deneyimi yaşayabilirsiniz..
+        </h6>
+        <a href="/Admin/Xhome" onclick="ajax_loading()">Yeni Admin Yönetim Paneli</a>
+        <!-- Card Columns Example Social Feed-->
+        <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> Haber Beslemeleri
+            <a href="/Yeni_haber" style="float:right">+ Yeni Haber</a>
+        </div>
+
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color:blueviolet">
+                        @item.Kullanici.Ad
+                        <div class="rounded-circle" style="background-color:gray">
+                            <img class="rounded-circle" style="margin:2px" src="~/Content/images/tux.jpg" width="50" height="50" />
+                        </div>
+                    </td>
+                    <td>
+                        <a style="color: white; background-color: gray; padding: 5px; border-radius: 5px;" href="/Haber/@item.Baslik">@Html.DisplayFor(modelItem => item.Baslik)</a>
+                        <br />
+                        <div>@item.Makale.ToString().Substring(0, (item.Makale.Length > 250) ? 250 : item.Makale.Length)</div>
+                        @if (item.Makale.Length >= 200)
+                        {
+                            <small style="color:red"> devamı var..</small>
+                        }
+                    </td>
+                    <td>
+                        @item.Olusturma_Tarihi
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <hr class="mt-2">
+        <div class="card-columns">
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-25" src="~/Content/images/profile.png" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">Onur Yorulmaz</a></h6>
+                    <p class="card-text small">
+                        acık araştır
+                        <a href="#">#Web</a>
+                        <a href="#">#Güzel</a>
+                        <a href="#">#Olmuş</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Beğen
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Yorum
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Paylaş
+                    </a>
+                </div>
+                <div class="card-footer small text-muted">21.02.2018</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-25" src="~/Content/images/profile.png" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">Furkan Ateş</a></h6>
+                    <p class="card-text small">
+                        Hocam sağa sola bi nazar duası koyun :)
+                        <a href="#">#nazarduası</a>
+                    </p>
+                    <p>
+                        Kul, euzü birabbil felâk,
+                        min şerri ma halak,
+                        ve min şerri gasikin iza vakab,
+                        ve min  şerrin neffassâti fil ukad,
+                        ve min şerri hâsidin iza hased.
+                    </p>
+                    <p>
+                        Kul, euzü birabbin nâs,
+                        melikin nâs, ilâhin nâs,
+                        min şerril vasvasil hannas,
+                        elleziy yuvesvisu fiy sudûrin nâs,
+                        minel cinneti ven nâs.
+                    </p>
+                    <p>
+                        Allahü la ilahe illahü vel hayyul kayyum
+                        la te'huzühu sinetüv vela nevm
+                        lehu ma fis semavati ve ma fil ard
+                        men zellezi yeşfeu indehu illa bi iznih
+                        ya'lemü ma beyne eydihim ve ma halfehüm
+                        ve la yühıytune bi şey'im min ilmihi illa bi ma şa'
+                        vesia kürsiyyühüs semavati vel ard
+                        ve la yeudühu hıfzuhüma ve hüvel aliyyül aziym
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Beğen
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Yorum yap
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Paylaş
+                    </a>
+                </div>
+                <div class="card-footer small text-muted">07.03.2018</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-25" src="~/Content/images/profile.png" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">Furkan Uzunçakmak</a></h6>
+                    <p class="card-text small">
+                        "Çalışınca oluyor." Kocaeli Büyükşehir Belediyesi
+                        <a href="#">#workhard</a>
+                        <a href="#">#Kocaeli</a>
+                        <a href="#">#Belediye</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Beğen
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Yorum yap
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Paylaş
+                    </a>
+                </div>
+                <div class="card-footer small text-muted">21.02.2018</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-25" src="~/Content/images/profile.png" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">Mehmet Erdoğdu</a></h6>
+                    <p class="card-text small">
+                        Bir gün bu siteyle Alibabaya rakip olacağım!
+                        <a href="#">#Alibaba</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Beğen
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Yorum
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Paylaş
+                    </a>
+                </div>
+                <hr class="my-0">
+                <div class="card-body small bg-faded">
+                    <div class="media">
+                        <img class="d-flex mr-3" src="~/Content/images/tux.png" alt="" width="45px">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-1"><a href="#">Togan Kuter Eren</a></h6>Sen kim Alibabaya rakip olmak kim
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#">Beğen</a>
+                                </li>
+                                <li class="list-inline-item">·</li>
+                                <li class="list-inline-item">
+                                    <a href="#">Yorum yap</a>
+                                </li>
+                            </ul>
+                            <div class="media mt-3">
+                                <a class="d-flex pr-3" href="#">
+                                    <img src="~/Content/images/tux.png" alt="" width="45px" height="45px">
+                                </a>
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">Hakan Eren</a></h6>Katılıyorum yoldaş. Bakış acisi sayfasina destek olun, ya da olur musunuz !?
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Beğen</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Yorum yap</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">32 dk önce</div>
+            </div>
+        </div>
+        <center style="background-color:whitesmoke;margin-bottom:15px">Haberlerin Sonu</center>
+        <!-- /Card Columns-->
+    </div>
+
+    <!-- Example Notifications Card-->
+    <div class="col-lg-4" style="padding-top:10px">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-bell-o"></i> Son bildirimler
+            </div>
+            <div class="list-group list-group-flush small">
+
+                <a class="list-group-item list-group-item-action" href="/Hakkimizda" onclick="ajax_loading()">
+                    <div class="media">
+                        <img class="d-flex mr-3 rounded-circle" src="~/Content/images/tux.png" alt="Logo" width="45px">
+                        <div class="media-body">
+                            <strong>Mehmet Erdoğdu</strong> sana 1 Mesaj gönderdi.
+                            <div class="text-muted smaller">Bugün saat 04:15 - 1 saat önce</div>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">Tüm aktivitelere bak...</a>
+            </div>
+            <div class="card-footer small text-muted">Son görüntüleme : @DateTime.Now</div>
+        </div>
+
+        <button class="btn btn-outline btn-success" data-toggle="collapse" data-target="#demo"
+                aria-expanded="true">
+            Gelişmeleri Göster - Gizle
+        </button>
+        <hr />
+
+        <!-- Icon Cards-->
+        <div id="demo" class="collapse show">
+            <div class="card mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-comments"></i>
+                        </div>
+                        <div class="mr-5">
+                            <ul>
+                                <li>Bu bir ASP.NET MVC projesidir.</li>
+                                <li>Ek menü ve özellikler için sağ üst köşeden Admin olarak oturum açınız..!</li>
+                                <li>"Progressive Web App" uyum sağlanmıştır. Bunun için servis eklendi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Hepsini gör</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">
+                            İstatistik, Bildirim ve Mesajlar henüz kodlanmamıştır..
+                            <ul>
+                                <li>Hamburger ve tema için kişiselleştirme eklendi. Artık menü ve ayarlarınız Çerez ile korunuyor.</li>
+                                <li>Yükleme animasyonu eklendi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Hepsini gör</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-shopping-cart"></i>
+                        </div>
+                        <div class="mr-5">Özellikler</div>
+                        <ul>
+                            <li>Çevrimdışı gezinti için önbellekleme eklendi</li>
+                            <li>SignalR anlık iletişim desteği eklendi</li>
+                            <li>Tarayıcı bildirim butonu eklendi</li>
+                        </ul>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Hepsini gör</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-support"></i>
+                        </div>
+                        <div class="mr-5">
+                            <ul>
+                                <li>Admin yönetim konsolu eklenmiştir!</li>
+                                <li>Android - iOS desteği</li>
+                                <li>Responsive tasarım</li>
+                                <li>Mobil için, "Add to Home Screen - Ana Ekrana Ekle" butonu eklendi.</li>
+                                <li>Hata silme işlemi hızlandırıldı.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">Hepsini gör</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

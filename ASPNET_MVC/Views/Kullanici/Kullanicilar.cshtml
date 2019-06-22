@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ASPNET_MVC.Models.EntitiyFramework.Kullanici>
+
+@{
+    ViewBag.Title = "Kullanıcılar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanıcılar</h2>
+<h6 style="color:red">Burada değişiklik yapma hakkına sadece A seviyesindeki kullanıcılar sahiptir!</h6>
+<p>
+    @Html.ActionLink("Yeni Kullanıcı", "Olustur")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sifre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sifre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Duzenle", new { id = item.Id }) |
+                    @Html.ActionLink("Detaylar", "Detaylar", new { id = item.Id }) |
+                    @Html.ActionLink("Sil", "Sil", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

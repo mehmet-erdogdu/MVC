@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Admin Yönetim Paneli</h2>
+<h4>Gözleriniz harika :)</h4>
+<h6>Beta aşamasındadır. Şuan sitenin çalışması esnasında oluşan hataları menüden görebilirsiniz..</h6>
+<a href="/elmah.axd">Buradan da anlık oturum hata eklentisine bakabilirsiniz</a>
+<br />
+<a href="/Admin/Hata" onclick="ajax_loading()">
+    <i class="fa fa-fw fa-times-circle"></i>
+    <span class="nav-link-text">Sunucu Hata Kayıtları</span>
+</a>
+<br />
+<a href="/" onclick="ajax_loading()">
+    <i class="fa fa-fw fa-space-shuttle"></i>
+    <span class="nav-link-text">Siteye Geri Dön</span>
+</a>

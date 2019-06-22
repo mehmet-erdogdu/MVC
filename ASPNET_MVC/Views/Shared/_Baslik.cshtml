@@ -1,0 +1,178 @@
+﻿@* BUrası _Header da çağırılıyor *@
+<a class="navbar-brand" href="/" onclick="ajax_loading()">
+    @*<div style="border:1px solid black; border-radius:5px; background-color:dimgray;padding:2px; width:220px">
+            <img src="~/Content/images/tux.png" alt="Logo" height="25" />MEMO Soft TM
+        </div>*@
+    <div>
+        <span class="fa fa-fw fa-circle-o" style="color:blue;"></span>MEMO Soft TM
+    </div>
+
+</a>
+@* Mobil için üst panel *@
+<a class="navbar-toggler" href="/Sohbet" onclick="ajax_loading()" style="height:40px;width:56px;padding-top:8px;color:crimson">
+    <span class="fa fa-fw fa-heart"></span>
+</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    @*<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">*@
+    <div>
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            @*style="overflow-y:scroll;*@
+            @*Hamburger linkler*@
+            @Html.Partial("_Link")
+        </ul>
+    </div>
+    @*Hamburger gizle*@
+
+    <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+            @if (Request.Cookies["hamburger"] == null || Request.Cookies["hamburger"].Value == "0")
+            {
+                <a class="nav-link text-center" href="/Hamburger/0" onclick="ajax_loading()">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            }
+            else
+            {
+                <a class="nav-link text-center" href="/Hamburger/1" onclick="ajax_loading()">
+                    <i class="fa fa-fw fa-angle-right"></i>
+                </a>
+            }
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        @* Haberler *@
+        <li class="nav-item">
+            <a class="nav-link" href="/Haberler">
+                <i class="fa fa-fw fa-newspaper-o"></i>
+                <span style="color:red">Haberler</span>
+            </a>
+        </li>
+
+        @*benim bildirim.*@
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-lightbulb-o"></i>
+                <span>
+                    @*class="d-lg-none"*@
+
+                    <span class="badge badge-pill badge-primary">@{Html.RenderAction("ToplamMaas", "Personel");} TL</span>
+                </span>
+                @*<span class="indicator text-primary d-none d-lg-block">
+                        <i class="fa fa-fw fa-circle"></i>
+                    </span>*@
+            </a>
+            <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                <a class="dropdown-item" href="#">
+                    <strong>Departman</strong>
+                    <div class="dropdown-message small">@{Html.RenderAction("Departman_Sayisi", "Komut");} adet departman vardır.</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <strong>Personel</strong>
+                    <div class="dropdown-message small">@{Html.RenderAction("Personel_Sayisi", "Komut");} personel vardır.</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item small" href="/Istatistik" onclick="ajax_loading()">Tüm istatistikleri görüntüle</a>
+            </div>
+        </li>
+        @*Bildirim*@
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-bell"></i>
+                <span>
+
+                    <span class="badge badge-pill badge-warning">2</span>
+                </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                <a class="dropdown-item" href="#">
+                    <span class="text-success">
+                        <strong>
+                            <i class="fa fa-long-arrow-up fa-fw"></i>Durum güncellemesi 1
+                        </strong>
+                    </span>
+                    <span class="small float-right text-muted">11:21 AM</span>
+                    <div class="dropdown-message small">Bildirim 1</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span class="text-danger">
+                        <strong>
+                            <i class="fa fa-long-arrow-down fa-fw"></i>Durum güncellemesi 2
+                        </strong>
+                    </span>
+                    <span class="small float-right text-muted">11:21 AM</span>
+                    <div class="dropdown-message small">Bildirim 2</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item small" href="#">Tüm bildirimleri gör</a>
+            </div>
+        </li>
+        @*Mesaj*@
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-envelope"></i>
+                <span>
+
+                    <span class="badge badge-pill badge-primary">2</span>
+                </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                <a class="dropdown-item" href="/Sohbet" onclick="ajax_loading()">
+                    <strong>Mehmet Erdoğdu</strong>
+                    <span class="small float-right text-muted">5.03.2018 10:48:09</span>
+                    <div class="dropdown-message small">Merhaba Dünya!</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Sohbet" onclick="ajax_loading()">
+                    <strong>MEMO Soft TM</strong>
+                    <span class="small float-right text-muted">5.03.2018 10:50:31</span>
+                    <div class="dropdown-message small">MEMO Soft yapım gururla sunar</div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item small" href="/Sohbet" onclick="ajax_loading()">Tüm mesajları görüntüle</a>
+            </div>
+        </li>
+        @*Arama*@
+        <li class="nav-item">
+            <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Aramak için tıklayınız...">
+                    <span class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </li>
+        @*Kapatma*@
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                @if (User.Identity.Name != "")
+                {<label id="Yakala">@HttpContext.Current.User.Identity.Name</label>}
+            else
+            {<label>Oturum Aç</label>}
+                <i class="fa fa-fw fa-sign-out"></i>
+            </a>
+        </li>
+        @if (Request.Cookies["tema"] == null || Request.Cookies["tema"].Value == "0")
+        {
+            <li class="nav-item" style="margin-top:5px">
+                <a class="fa fa-dashboard"
+                   href="/Tema/0" onclick="ajax_loading()"></a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item" style="margin-top:5px">
+                <a class="fa fa-dashboard"
+                   href="/Tema/1" onclick="ajax_loading()"></a>
+            </li>
+        }
+    </ul>
+</div>
